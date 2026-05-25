@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeri Media</title>
+    <link rel="stylesheet" href="Style.css" />
+    <style>
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); cursor: zoom-out; overflow: hidden; }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85%; position: relative; top: 50%; transform: translateY(-50%); border: 4px solid white; border-radius: 5px; }
+        .close { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .foto-container img { cursor: zoom-in; }
+        .audio-card { margin-bottom: 100px !important; }
+        .select-lagu { width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit; font-weight: bold; background: #fff; cursor: pointer; outline: none; }
+    </style>
+</head>
+<body>
+    <nav>
+        <b>MENU:</b>
+        <a href="Index.html">Home</a> | <a href="Beranda.html">Beranda</a> | <a href="Profil.html">Profil</a> | <a href="Galery.html" class="active">Galeri</a> 
+    </nav>
+
+    <h1>Galeri Media</h1>
+
+    <div class="card">
+        <h3>Koleksi Foto:</h3>
+        <div class="foto-container">
+            <img src="public/foto/foto1.png" alt="Foto 1" onclick="bukaModal(this.src)">
+            <img src="public/foto/foto.png" alt="Foto 2" onclick="bukaModal(this.src)">
+        </div>
+    </div>
+
+    <div class="card audio-card">
+        <h3>Dengarkan Musik:</h3>
+        
+        <select id="pilihLagu" class="select-lagu" onchange="gantiLagu(this.value)">
+            <option value="public/audio/Audio.mp3">🎵 Track 1 (Default)</option>
+            <option value="public/audio/Audio1.mp3">🎵 Track 2 (Audio 1)</option>
+            <option value="public/audio/space.mp3">🎵 Track 3 (Space)</option>
+        </select>
+
+        <audio id="playerMusik" controls style="width: 100%;">
+            <source src="public/audio/Audio.mp3" type="audio/mpeg">
+            Browser kamu tidak mendukung pemutar audio.
+        </audio>
+    </div>
+
+    <div id="myModal" class="modal" onclick="tutupModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="imgFull">
+    </div>
+
+    <script>
+        function bukaModal(src) { document.getElementById("myModal").style.display = "block"; document.getElementById("imgFull").src = src; }
+        function tutupModal() { document.getElementById("myModal").style.display = "none"; }
+        document.addEventListener('keydown', function(e) { if (e.key === "Escape") tutupModal(); });
+
+        function gantiLagu(url) {
+            var audio = document.getElementById("playerMusik");
+            audio.src = url;
+            audio.play();
+        }
+    </script>
+</body>
+</html>

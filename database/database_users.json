@@ -1,0 +1,20 @@
+[
+    {
+        "email": "dxalvador4@gmail.com",
+        "password": "dimas123",
+        "name": "Dimas Abdurahman",
+        "role": "ADMIN",
+        "status": "ACTIVE",
+        "remember_token": "2fcf994271e2ee1e50460ee075853a6c624b6606b8bc28a86f5211e12abcafdf",
+        "registered_at": "24-05-2026 17:24:30"
+    },
+    {
+        "email": "dimassuspend63@gmail.com",
+        "password": "Dimas123",
+        "name": "Gajah",
+        "role": "USER",
+        "status": "ACTIVE",
+        "remember_token": "",
+        "registered_at": "25-05-2026 02:48:04"
+    }
+]
